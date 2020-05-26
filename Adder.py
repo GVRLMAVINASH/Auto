@@ -110,7 +110,7 @@ for user in users:
     except UserPrivacyRestrictedError:
         print("The user's privacy settings do not allow you to do this. Skipping.")
         print("Waiting for 5 Seconds...")
-        time.sleep(random.randrange(60, 180))
+        time.sleep(random.randrange(0, 5))
     except:
         traceback.print_exc()
         print("Unexpected Error")
