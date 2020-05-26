@@ -29,8 +29,8 @@ async def main():
     await client.send_message('me', 'Hello !!!!!')
 
 
-SLEEP_TIME_1 = 100
-SLEEP_TIME_2 = 100
+SLEEP_TIME_1 = 1000
+SLEEP_TIME_2 = 1000
 with client:
     client.loop.run_until_complete(main())
 client.connect()
@@ -89,7 +89,7 @@ n = 0
 for user in users:
     n += 1
     if n % 80 == 0:
-        sleep(60)
+        sleep(600)
     try:
         print("Adding {}".format(user['id']))
         if mode == 1:
