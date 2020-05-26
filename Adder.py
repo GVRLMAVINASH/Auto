@@ -29,8 +29,8 @@ async def main():
     await client.send_message('me', 'Hello !!!!!')
 
 
-SLEEP_TIME_1 = 1000
-SLEEP_TIME_2 = 1000
+SLEEP_TIME_1 = 100
+SLEEP_TIME_2 = 200
 with client:
     client.loop.run_until_complete(main())
 client.connect()
@@ -89,7 +89,7 @@ n = 0
 for user in users:
     n += 1
     if n % 80 == 0:
-        sleep(600)
+        sleep(60)
     try:
         print("Adding {}".format(user['id']))
         if mode == 1:
@@ -102,7 +102,7 @@ for user in users:
             sys.exit("Invalid Mode Selected. Please Try Again.")
         client(InviteToChannelRequest(target_group_entity, [user_to_add]))
         print("Waiting for 60-180 Seconds...")
-        time.sleep(random.randrange(0, 5))
+        time.sleep(random.randrange(60, 180))
     except PeerFloodError:
         print("Getting Flood Error from telegram. Script is stopping now. Please try again after some time.")
         print("Waiting {} seconds".format(SLEEP_TIME_2))
@@ -110,7 +110,7 @@ for user in users:
     except UserPrivacyRestrictedError:
         print("The user's privacy settings do not allow you to do this. Skipping.")
         print("Waiting for 5 Seconds...")
-        time.sleep(random.randrange(0, 5))
+        time.sleep(random.randrange(60, 180))
     except:
         traceback.print_exc()
         print("Unexpected Error")
